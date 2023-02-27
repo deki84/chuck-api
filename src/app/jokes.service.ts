@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class JokesService {
   private apiUrl = 'https://api.chucknorris.io/jokes/';
+
   constructor(private http: HttpClient) {}
 
   // Get Random Joke
@@ -20,5 +21,9 @@ export class JokesService {
   // Get Joke By Category
   getCategoryJoke(category: string) {
     return this.http.get(this.apiUrl + `random?category=${category}`);
+  }
+  // Get Search Jokes
+  getSearchJokes(searchTerm: string) {
+    return this.http.get(this.apiUrl + `search?query=${searchTerm}`);
   }
 }
