@@ -20,4 +20,19 @@ export class AppComponent implements OnInit {
       .getRandomJoke()
       .subscribe((joke: any) => this.jokes.push(joke));
   }
+  // Search by category
+  searchByCategory(category: string) {
+    this.jokesService.getCategoryJoke(category).subscribe((joke) => {
+      this.jokes = [];
+      this.jokes.push(joke);
+    });
+  }
+  // Search by Serach Term
+  searchBySearchTerm(searchTerm: string) {
+    if (searchTerm !== '') {
+      this.jokesService.getSearchJokes(searchTerm).subscribe((jokes: any) => {
+        this.jokes = jokes.result;
+      });
+    }
+  }
 }

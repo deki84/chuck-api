@@ -10,16 +10,21 @@
 
   <!-- Search -->
   <div class="search-content">
-    <input type="text" placeholder="Enter your Search Term" />
-    <button type="button">Search</button>
+    <input type="text" placeholder="Enter your Search Term" #searchTerm />
+    <button type="button" (click)="searchBySearchTerm(searchTerm.value)">
+      Search
+    </button>
   </div>
   <!-- End of Search -->
 
   <!-- Categories -->
   <div class="categories">
-    <span class="category" *ngFor="let category of categories">{{
-      category
-    }}</span>
+    <span
+      class="category"
+      *ngFor="let category of categories"
+      (click)="searchByCategory(category)"
+      >{{ category }}</span
+    >
   </div>
   <!-- End of Categories -->
 
