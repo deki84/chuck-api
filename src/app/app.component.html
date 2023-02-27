@@ -17,17 +17,20 @@
 
   <!-- Categories -->
   <div class="categories">
-    <span class="category">Category</span>
-    <span class="category"> Category </span>
-    <span class="category">Category</span>
+    <span class="category" *ngFor="let category of categories">{{
+      category
+    }}</span>
   </div>
   <!-- End of Categories -->
 
   <!-- Jokes -->
-  <div class="joke-wrapper">
+  <div class="joke-wrapper" *ngFor="let joke of jokes">
     <div class="joke">
-      <img src="../assets/img/Jokes-about-Chuck-Norris-1024x683.jpg" alt="" />
-      <p>Funny Jokes</p>
+      <img
+        src="../assets/img/93a100acfb1578ba7eea486d72e5ec8a98d99343.png"
+        alt="Icon"
+      />
+      <p>{{ joke.value }}</p>
     </div>
   </div>
 
