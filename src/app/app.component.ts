@@ -8,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   jokes: any[] = [];
+  categories: any[] = [];
 
-  constructor(private JokesService: JokesService) {}
+  constructor(private jokesService: JokesService) {}
 
   ngOnInit() {
-    this.JokesService.getRandomJoke().subscribe((joke: any) =>
-      this.jokes.push(joke)
-    );
+    this.jokesService.getCategories().subscribe((categories: any) => {
+      this.categories = categories;
+    });
+    this.jokesService
+      .getRandomJoke()
+      .subscribe((joke: any) => this.jokes.push(joke));
   }
 }

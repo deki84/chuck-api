@@ -12,4 +12,13 @@ export class JokesService {
   getRandomJoke() {
     return this.http.get(this.apiUrl + 'random');
   }
+
+  // Get Categories
+  getCategories() {
+    return this.http.get(this.apiUrl + 'categories');
+  }
+  // Get Joke By Category
+  getCategoryJoke(category: string) {
+    return this.http.get(this.apiUrl + `random?category=${category}`);
+  }
 }
